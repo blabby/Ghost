@@ -1,8 +1,9 @@
+require_relative "player.rb"
 class Game
     attr_reader :dictionary
-    attr_accessor :fragment
+    attr_accessor :fragment, :players
     def initialize(*players)
-        @players = players
+        @players = players.map {|p| Player.new(p)}
         @dictionary = ["yolk","potato","apple"] #using these words for testing purposes
         # @dictionary = File.readlines("dictionary.txt").map(&:chomp)
         @fragment = "yol"
@@ -27,6 +28,15 @@ class Game
     end
         false
     end
+
+    def switch_players
+        first = players.shift
+        players << first
+    end
+
+    def current_player
+        players.first
+    end 
 
 
 end
