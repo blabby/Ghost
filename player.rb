@@ -28,11 +28,4 @@ class Player
             false
         end
     end
-
-    def lose?
-       if !add_score
-        puts "lose!"
-        #@name loses
-       end
-    end
 end
